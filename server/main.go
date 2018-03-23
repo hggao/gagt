@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import "log"
+
+var (
+	port int = 2018
+)
 
 func main() {
-	fmt.Println("server")
+
+	AgentServer(port)
+
+	log.Println("Server exit, bye!")
 }
