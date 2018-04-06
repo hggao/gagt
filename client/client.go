@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/hggao/gagt/lib"
 	"log"
 	"net"
 	"strconv"
@@ -22,11 +23,10 @@ func AgentClient(ip string, port int, msgs []string) {
 		log.Fatalln("Cannot connect to server:", err)
 	}
 
-	buff := make([]byte, 1024)
 	for _, msg := range msgs {
-		conn.Write([]byte(msg))
+		comm.SendPacket(conn, msg)
 		log.Printf("Sent: %s", msg)
-		n, _ := conn.Read(buff)
-		log.Printf("Received: %s", buff[:n])
+		n, buff := comm.RecvPacket(conn)
+		log.Printf("Received %d bytes: %s", n, buff)
 	}
 }
