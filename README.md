@@ -1,5 +1,5 @@
 # gagt - Generic Agent
-
+```
 A generic purpose client <= servers architectural agent program.
 Main features:
 1. Query system information where server(s) is running through client.
@@ -20,3 +20,4 @@ Action items:
   4.1 - File transfter
   4.2 - Execute shell command
 5. Client multiple servers management
+```
